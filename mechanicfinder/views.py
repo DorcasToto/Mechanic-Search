@@ -1,16 +1,17 @@
 from django.shortcuts import render
 from django.views.generic import CreateView
 from .models import User
-from django.contrib.auth import login
+from django.contrib.auth import login,authenticate
 from django.shortcuts import redirect
 from .forms import ClientRegistrationForm,GarageRegistrationForm
-
+from django.contrib.auth.forms import AuthenticationForm
+from django.contrib import messages
 # Create your views here.
 def home(request):
     return render(request,"home.html")
 
-def client_home(request):
-    return render(request,"client_home.html")
+def landingpage(request):
+    return render(request,"landingpage.html")
 
 def garage_home(request):
     return render(request,"garage_home.html")
@@ -28,7 +29,7 @@ class client_register(CreateView):
     def form_valid(self,form):
         user = form.save()
         login(self.request,user)
-        return redirect('client_home')
+        return redirect('login')
 
 class garage_register(CreateView):
     model = User
@@ -38,4 +39,20 @@ class garage_register(CreateView):
     def form_valid(self,form):
         user = form.save()
         login(self.request,user)
-        return redirect('garage_home')      
+        return redirect('login')      
+
+def login_request(request):
+    if request.method =='POST':
+        form = AuthenticationForm(data = request.POST)
+        if form.is_valid():
+            username = form.cleaned_data.get('username')
+            password = form.cleaned_data.get('password')
+            user = authenticate(username = username,password = password)
+            if user is not None:
+                login(request,user)
+                return redirect('landingpage')
+            else:
+                messages.error(request,"Invalid username or password") 
+        else:
+                messages.error(request,"Invalid username or password")       
+    return render(request,'login.html',{'form':AuthenticationForm})        
