@@ -6,8 +6,14 @@ from django.shortcuts import redirect
 from .forms import ClientRegistrationForm,GarageRegistrationForm
 
 # Create your views here.
-def register(request):
-    return render(request,"register.html")
+def home(request):
+    return render(request,"home.html")
+
+def client_home(request):
+    return render(request,"client_home.html")
+
+def garage_home(request):
+    return render(request,"garage_home.html")
 
 class client_register(CreateView):
 #    if request.method == 'POST':
@@ -22,4 +28,14 @@ class client_register(CreateView):
     def form_valid(self,form):
         user = form.save()
         login(self.request,user)
-        return redirect('register')
+        return redirect('client_home')
+
+class garage_register(CreateView):
+    model = User
+    form_class = GarageRegistrationForm
+    template_name='garage_register.html'
+
+    def form_valid(self,form):
+        user = form.save()
+        login(self.request,user)
+        return redirect('garage_home')      

@@ -13,6 +13,8 @@ class ClientRegistrationForm(UserCreationForm):
         user = super().save(commit=False)
         user.is_client = True
         user.save()
+        client = Client.objects.create(user=user)
+        client.save()
         return user
 
 
@@ -27,4 +29,6 @@ class GarageRegistrationForm(UserCreationForm):
         user = super().save(commit=false)
         user.is_mechanic = True
         user.save()
+        garage = Garage.objects.create(user=user)
+        garage.save()
         return user  
