@@ -10,12 +10,12 @@ class User(AbstractUser):
 
 class Garage(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE, primary_key = True)
-    photo = models.ImageField(upload_to="images")
 
 class Client(models.Model):
     user = models.OneToOneField(User, on_delete = models.CASCADE, primary_key = True)
 
 class Business(models.Model):
+    user = models.ForeignKey(User,on_delete=models.CASCADE,default='')
     business_name = models.CharField(max_length=20)
     mechanic_name = models.CharField(max_length=20)
     services = models.CharField(max_length=20)
