@@ -8,6 +8,48 @@
         <a href="">Welcome</a>
         {%else%}
         <a href="">Eeeeissh</a>
+
+        <div class="container">
+            <a href="">
+                <button class="btn btn-default">Create Business</button>
+            </a>
+
+            <h2>List of my Businesses</h2>
+            <!--Table-->
+            <table class="table table-striped w-auto">
+
+                <!--Table head-->
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Business Name</th>
+                        <th>Mechanic Name</th>
+                        <th>Services</th>
+                        <th>Availability</th>
+                        <th>Address</th>
+                        <th>City</th>
+                        <th>Location</th>
+                        <th>is_approved</th>
+                    </tr>
+
+                </thead>
+                <tbody>
+                    {%for business in businesses%}
+                    <tr class="table-info">
+                        <th scope="row">1</th>
+                        <td>{{business.business_name}}</td>
+                        <td>Moss</td>
+                        <td>USA</td>
+                        <td>New York City</td>
+                        <td>Web Designer</td>
+                        <td>23</td>
+                    </tr>
+                    {%endfor%}
+                </tbody>
+            </table>
+            <!--Table-->
+        </div>
+
         {%endif%}
     </div>
 

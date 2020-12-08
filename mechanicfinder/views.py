@@ -6,13 +6,16 @@ from django.shortcuts import redirect
 from .forms import ClientRegistrationForm,GarageRegistrationForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
+from .models import Business
 # Create your views here.
 def home(request):
     return render(request,"home.html")
+    
 
 def landingpage(request):
-    return render(request,"landingpage.html")
-
+    businesses = Business.objects.all()
+    return render(request,"landingpage.html",{"businesses":businesses})
+   
 def garage_home(request):
     return render(request,"garage_home.html")
 
