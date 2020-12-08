@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.views.generic import CreateView
 from .models import User
-from django.contrib.auth import login,authenticate
+from django.contrib.auth import login,authenticate,logout
 from django.shortcuts import redirect
 from .forms import ClientRegistrationForm,GarageRegistrationForm
 from django.contrib.auth.forms import AuthenticationForm
@@ -56,3 +56,7 @@ def login_request(request):
         else:
                 messages.error(request,"Invalid username or password")       
     return render(request,'login.html',{'form':AuthenticationForm})        
+
+def logout_request(request):
+    logout(request)
+    return redirect('login')
