@@ -30,4 +30,8 @@ class Business(models.Model):
     city = models.CharField(max_length=20)
     location = models.CharField(max_length=20)
     cert = models.ImageField(upload_to="images")
+    is_approved = models.BooleanField(default=False)
+
+    def __str__(self):
+        return self.business_name
 

@@ -18,18 +18,23 @@
                             {% csrf_token %}
                             {% bootstrap_form form %}
                             <div class="form-group">
-                                <input type="submit" class="btn btn-primary btn-lg" value="Register">
+                                <input type="submit" class="btn btn-primary btn-lg" value="Login">
                             </div>
                             <input type="hidden" name="next" value="{{next}}">
 
                         </form>
-
                     </div>
-
+                    <p>Do not have an account? Register
+                    <p>
+                        <a href="{% url "garage_register" %}">as a Mechanic</a> OR
+                        <a href="{% url "client_register" %}">as
+                            a Client</a>
                 </div>
+
             </div>
         </div>
     </div>
+</div>
 
-    {% endblock %}
+{% endblock %}
 </div>
