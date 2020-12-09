@@ -110,4 +110,28 @@ def profile(request):
 def delete(request,id):
     business = Business.objects.get(id = id)
     business.delete()
-    return redirect('landingpage')    
+    return redirect('landingpage')
+
+def update(request,id):
+    if request.POST:
+        business_form = BusinessRegistration(request.POST)
+
+        if business_form.is_valid():
+
+
+            bus = Business.objects.get(id=id)
+            bus_form = BusinessRegistration(request.POST, instance = bus)
+            bus_form.save() 
+            return redirect('landingpage')
+    else:
+        bus = Business.objects.get(pk = id)       
+        bus_form = BusinessRegistration(instance=bus)
+        params = {
+            'form':bus_form,
+            'bus':bus,
+        }
+
+    return render(request,'edit_business.html',params)
+
+def feedback(request,id):
+    pass  
