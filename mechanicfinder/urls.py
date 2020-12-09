@@ -11,8 +11,10 @@ urlpatterns = [
     path('garage_register/',views.garage_register.as_view(),name = 'garage_register'),
     path('new_business/',views.new_business,name = 'new_business'),
     path('search/',views.search_location,name = 'search_location'),
+    path('profile/',views.profile,name = 'profile'),
     path('login/',views.login_request,name = 'login'),
     path('logout/',views.logout_request,name = 'logout'),
+
      
 ]
 

@@ -1,0 +1,22 @@
+<div class="class" style="font-family: 'Jost', sans-serif;">
+    {% extends 'base.html' %}
+    {% block content %}
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <span class="row">
+                    Username: <p class="pl-5">{{user.username}}</p>
+                </span>
+                <span class="row">
+                    EmailAddress: <p class="pl-5">{{user.email}}</p>
+                </span>
+                <span class="row">
+                    Phone Number: <p class="pl-5">{{user.phone_number}}</p>
+                </span>
+
+            </div>
+        </div>
+
+    </div>
+    {% endblock %}
+</div>

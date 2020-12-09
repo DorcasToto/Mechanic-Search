@@ -103,3 +103,6 @@ def search_location(request):
     else:
         message = "You haven't searched for any Location"
     return render(request, 'search.html', {'message': message})
+
+def profile(request):
+    return render(request,'profile.html')
