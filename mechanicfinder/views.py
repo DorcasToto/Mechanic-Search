@@ -8,6 +8,9 @@ from .forms import ClientRegistrationForm,GarageRegistrationForm,BusinessRegistr
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from .models import Business,Feedback
+from django.shortcuts import get_object_or_404
+from django.http import Http404
+from django.core.exceptions import ObjectDoesNotExist
 # Create your views here.
 def home(request):
     return render(request,"home.html")
@@ -153,8 +156,11 @@ def client_feedback(request,id):
     return render(request,"client_feedback.html",{"form":form,"feed":feed})
 
 def garage_feedback(request,id):
-
-    feedback = Feedback.objects.get(business=id)
-    print(feedback)
+    # try:    
+    #     feedback = Feedback.objects.get(business=id)
+    # except ObjectDoesNotExist:
+    #     raise Http404("No MyModel matches the given query.")
+    # return render(request,'garage_feedback.html',{'feedback':feedback})
+    feedback = get_object_or_404(Feedback,business=id)
     return render(request,'garage_feedback.html',{'feedback':feedback})
 
