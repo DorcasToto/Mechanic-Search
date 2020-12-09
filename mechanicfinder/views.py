@@ -80,4 +80,18 @@ def new_business(request):
     else:
         form = BusinessRegistration()
 
-    return render(request,"new_business.html",{"form":form})      
+    return render(request,"new_business.html",{"form":form})
+
+def search_location(request):
+    if 'search_business' in request.GET and request.GET['search_business']:
+        name = request.GET.get("search_business")
+        searchResults = Business.search_location(name)
+        message = f'name'
+        params = {
+            'results': searchResults,
+            'message': message
+        }
+        return render(request, 'search.html', params)
+    else:
+        message = "You haven't searched for any Location"
+    return render(request, 'search.html', {'message': message})

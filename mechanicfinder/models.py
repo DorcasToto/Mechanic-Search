@@ -37,3 +37,6 @@ class Business(models.Model):
     def __str__(self):
         return self.business_name
 
+    @classmethod
+    def search_location(cls, name):
+        return cls.objects.filter(location__icontains=name).all()
