@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm
-from .models import User,Client,Garage
+from .models import User,Client,Garage,Business
 from django.db import transaction
 from django import forms 
 
@@ -33,3 +33,8 @@ class GarageRegistrationForm(UserCreationForm):
         garage = Garage.objects.create(user=user)
         garage.save()
         return user  
+
+class BusinessRegistration(forms.ModelForm):
+    class Meta:
+        model = Business
+        fields= ['business_name','mechanic_name','services,available','address','city','location','cert']
