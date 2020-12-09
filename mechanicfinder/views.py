@@ -4,7 +4,7 @@ from .models import User
 from django.contrib.auth import login,authenticate,logout
 from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
-from .forms import ClientRegistrationForm,GarageRegistrationForm,BusinessRegistration
+from .forms import ClientRegistrationForm,GarageRegistrationForm,BusinessRegistration,FeedbackForm
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from .models import Business,Feedback
@@ -133,10 +133,27 @@ def update(request,id):
 
     return render(request,'edit_business.html',params)
 
-def Client_feedback(request,id):
-    pass
+def client_feedback(request,id):
+    feed = Business.objects.get(id=id)
+    current_user = request.user
+    if request.method == 'POST':
+        form = FeedbackForm(request.POST)
+        if form.is_valid():
+            formFeed = form.save(commit=False)
+            formFeed.user = current_user
+            formFeed.business = feed
+            formFeed.save()
+            messages.success(request,"Your Feedback has been Sent!")
+            return redirect('landingpage')
+
+    else:
+        form = FeedbackForm()
+        feed = Business.objects.get(id=id)
+
+    return render(request,"client_feedback.html",{"form":form,"feed":feed})
 
 def garage_feedback(request,id):
+
     feedback = Feedback.objects.get(business=id)
     print(feedback)
     return render(request,'garage_feedback.html',{'feedback':feedback})

@@ -1,5 +1,5 @@
 from django.contrib.auth.forms import UserCreationForm
-from .models import User,Client,Garage,Business
+from .models import User,Client,Garage,Business,Feedback
 from django.db import transaction
 from django import forms 
 
@@ -38,5 +38,7 @@ class BusinessRegistration(forms.ModelForm):
     class Meta:
         model = Business
         fields= ['business_name','mechanic_name','services','available','price','address','city','location','phone_number','cert']
-class FeedbackForm():
-    pass
+class FeedbackForm(forms.ModelForm):
+    class Meta:
+        model = Feedback
+        fields = ['feedback']

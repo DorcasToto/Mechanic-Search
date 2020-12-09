@@ -5,6 +5,14 @@
         {%if user.is_authenticated and user.is_client%}
         <h3>Find on Road services</h3>
         <div class="container-fluid">
+            {% if messages %}
+            <ul class="messages">
+                {% for message in messages %}
+                <li class="{{ message.tags }} text-success">{{ message }}</li>
+                {% endfor %}
+            </ul>
+            {% endif %}
+
             <h3 class="pt-5 text-center">Available Approved services</h3>
             <hr>
             <div class="row pt-5">
@@ -83,7 +91,7 @@
                                 {{bus.phone_number}}
                             </div>
                         </div>
-                        <a href="">Feedback</a>
+                        <a href="{%url "client_feedback" bus.id %}">Feedback</a>
                     </div>
                 </div>
                 {%endfor%}

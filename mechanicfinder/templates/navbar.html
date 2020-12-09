@@ -13,7 +13,9 @@
                 </a>
             </li>
         </ul>
+        
         <ul class="navbar-nav ml-auto nav-flex-icons">
+            {%if user.is_client%}
             <li class="nav-item">
                 {% csrf_token %}
                 <form class="form-inline" action="{% url "search_location" %}">
@@ -23,6 +25,7 @@
                     </div>
                 </form>
             </li>
+            {%endif%}
             <li class="nav-item dropdown">
                 <a class="nav-link dropdown-toggle" id="navbarDropdownMenuLink-333" data-toggle="dropdown"
                     aria-haspopup="true" aria-expanded="false">
