@@ -83,6 +83,7 @@
                                 {{bus.phone_number}}
                             </div>
                         </div>
+                        <a href="">Feedback</a>
                     </div>
                 </div>
                 {%endfor%}
@@ -201,10 +202,11 @@
                             <td>
                                 <div class="row">
                                     <div class="col-sm">
-                                        <a><i class="fas fa-pen-square"></i></a>
+                                        <a href="{%url "update" unapproved.id %}"><i class="fas fa-pen-square"></i></a>
                                     </div>
                                     <div class="col-sm">
-                                        <a><i class="fas fa-trash-alt text-danger"></i></a>
+                                        <a class="{% url "delete" unapproved.id %}"><i
+                                                class="fas fa-trash-alt text-danger"></i></a>
                                     </div>
                                 </div>
 
@@ -258,8 +260,6 @@
             </div>
         </div>
     </div>
-
-
     {%endif%}
 </div>
 {%endblock%}
