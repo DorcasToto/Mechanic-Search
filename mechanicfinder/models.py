@@ -40,3 +40,6 @@ class Business(models.Model):
     @classmethod
     def search_location(cls, name):
         return cls.objects.filter(location__icontains=name).all()
+
+    def delete_business(self):
+        return self.delete()

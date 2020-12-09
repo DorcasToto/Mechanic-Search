@@ -12,6 +12,7 @@ urlpatterns = [
     path('new_business/',views.new_business,name = 'new_business'),
     path('search/',views.search_location,name = 'search_location'),
     path('profile/',views.profile,name = 'profile'),
+    path('delete/<id>/',views.delete,name = 'delete'),
     path('login/',views.login_request,name = 'login'),
     path('logout/',views.logout_request,name = 'logout'),
 

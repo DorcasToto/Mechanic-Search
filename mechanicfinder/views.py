@@ -106,3 +106,8 @@ def search_location(request):
 
 def profile(request):
     return render(request,'profile.html')
+
+def delete(request,id):
+    business = Business.objects.get(id = id)
+    business.delete()
+    return redirect('landingpage')    
