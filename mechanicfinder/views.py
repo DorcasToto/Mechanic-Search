@@ -113,6 +113,7 @@ def profile(request):
 def delete(request,id):
     business = Business.objects.get(id = id)
     business.delete()
+    message = "The record has been deleted successfully"
     return redirect('landingpage')
 
 def update(request,id):
