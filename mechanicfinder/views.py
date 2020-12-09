@@ -7,7 +7,7 @@ from django.shortcuts import redirect
 from .forms import ClientRegistrationForm,GarageRegistrationForm,BusinessRegistration
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
-from .models import Business
+from .models import Business,Feedback
 # Create your views here.
 def home(request):
     return render(request,"home.html")
@@ -133,5 +133,11 @@ def update(request,id):
 
     return render(request,'edit_business.html',params)
 
-def feedback(request,id):
-    pass  
+def Client_feedback(request,id):
+    pass
+
+def garage_feedback(request,id):
+    feedback = Feedback.objects.get(business=id)
+    print(feedback)
+    return render(request,'garage_feedback.html',{'feedback':feedback})
+

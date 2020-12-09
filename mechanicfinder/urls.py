@@ -15,6 +15,7 @@ urlpatterns = [
     path('delete/<id>/',views.delete,name = 'delete'),
     path('update/<id>/',views.update,name = 'update'),
     path('login/',views.login_request,name = 'login'),
+    path('garage_feedback/<id>/',views.garage_feedback,name = 'garage_feedback'),
     path('logout/',views.logout_request,name = 'logout'),
 
      

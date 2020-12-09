@@ -1,0 +1,22 @@
+
+
+<div class="class" style="font-family: 'Jost', sans-serif;">
+    {% extends 'base.html' %}
+    {% block content %}
+    <div class="container pt-5">
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <span class="row">
+                    By: <p class="pl-5">{{feedback.user.username}}</p>
+                </span>
+                <span class="row">
+                    Feedback: <p class="pl-5">{{feedback.feedback}}</p>
+                </span>
+            
+
+            </div>
+        </div>
+
+    </div>
+    {% endblock %}
+</div>

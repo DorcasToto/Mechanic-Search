@@ -136,7 +136,7 @@
                             <td>{{business.is_approved}}</td>
                             {%if business.is_approved%}
                             <td>
-                                <a href="#"><i class="fas fa-comment-dots"></i></a>
+                                <a href="{%url "garage_feedback" business.id %}"><i class="fas fa-comment-dots"></i></a>
                             </td>
                             <td>
                                 <div class="row">
@@ -240,7 +240,8 @@
                             <td>{{approved.mechanic_name}}</td>
                             <td>{{approved.is_approved}}</td>
                             <td>
-                                <a><i class="fas fa-comment-dots"></i></a>
+                                <a class="{%url "garage_feedback" approved.id %}"><i
+                                        class="fas fa-comment-dots"></i></a>
                             </td>
                             <td>
                                 <div class="row">
