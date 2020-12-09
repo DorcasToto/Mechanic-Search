@@ -38,11 +38,13 @@
                     <tr class="table-info">
                         <th scope="row">1</th>
                         <td>{{business.business_name}}</td>
-                        <td>Moss</td>
-                        <td>USA</td>
-                        <td>New York City</td>
-                        <td>Web Designer</td>
-                        <td>23</td>
+                        <td>{{business.mechanic_name}}</td>
+                        <td>{{business.services}}</td>
+                        <td>{{business.available}}</td>
+                        <td>{{business.address}}</td>
+                        <td>{{business.city}}</td>
+                        <td>{{business.location}}</td>
+                        <td>{{business.is_approved}}</td>
                     </tr>
                     {%endfor%}
                 </tbody>

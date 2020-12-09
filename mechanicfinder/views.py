@@ -13,7 +13,7 @@ def home(request):
     
 
 def landingpage(request):
-    businesses = Business.objects.all()
+    businesses = Business.objects.filter(user=request.user)
     return render(request,"landingpage.html",{"businesses":businesses})
    
 def garage_home(request):
