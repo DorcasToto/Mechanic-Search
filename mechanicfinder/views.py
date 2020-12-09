@@ -2,8 +2,9 @@ from django.shortcuts import render
 from django.views.generic import CreateView
 from .models import User
 from django.contrib.auth import login,authenticate,logout
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import redirect
-from .forms import ClientRegistrationForm,GarageRegistrationForm
+from .forms import ClientRegistrationForm,GarageRegistrationForm,BusinessRegistration
 from django.contrib.auth.forms import AuthenticationForm
 from django.contrib import messages
 from .models import Business
@@ -63,3 +64,22 @@ def login_request(request):
 def logout_request(request):
     logout(request)
     return redirect('login')
+
+@login_required
+def new_business(request):
+    current_user = request.user
+    if request.method == 'POST':
+        form = BusinessRegistration(request.POST,request.FILES)
+        if form.is_valid():
+            formBus = form.save(commit=False)
+            formBus.user = current_user
+            formBus.save()
+            return redirect('landingpage')
+
+    else:
+        form = BusinessRegistration()
+
+    return render(request,"new_business.html",{"form":form})      
+            # business_form = BusinessRegistration.save(commit = False)
+            # business_form.user = user
+            # business_form.save()
