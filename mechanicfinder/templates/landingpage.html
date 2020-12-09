@@ -90,88 +90,22 @@
 
         </div>
     </div>
-
     {%else%}
-
-    <!-- <div class="container-fluid"> -->
-    <!-- <a href="{% url "new_business" %}">
-            <button class="btn btn-default">Create Business</button>
-        </a> -->
-
-    <!-- <h2>List of my Businesses</h2> -->
-    <!--Table-->
-    <!-- <table class="table table-striped w-auto"> -->
-
-    <!--Table head-->
-    <!-- <thead>
-                <tr>
-                    <th>#</th>
-                    <th class="h5">Business Name</th>
-                    <th class="h5">Mechanic Name</th> -->
-    <!-- <th class="h5">Services</th>no
-                    <th class="h5">Availability</th>no
-                    <th class="h5">Price</th>no
-                    <th class="h5">Address</th>no
-                    <th class="h5">City</th>no
-                    <th class="h5">Location</th>no
-                    <th class="h5">Phone number</th>no -->
-    <!-- <th class="h5">approved status</th>
-                    <th class="h5">Feedback</th>
-                    <th class="h5">Action</th> -->
-    <!-- </tr>
-
-            </thead>
-            <tbody>
-                {%for business in businesses%}
-                <tr class="table-info">
-                    <th scope="row">1</th>
-                    <td>{{business.business_name}}</td>
-                    <td>{{business.mechanic_name}}</td> -->
-    <!-- <td>{{business.services}}</td>
-                    <td>{{business.available}}</td>
-                    <td>{{business.price}}</td>
-                    <td>{{business.address}}</td>
-                    <td>{{business.city}}</td>
-                    <td>{{business.location}}</td>
-                    <td>{{business.phone_number}}</td> -->
-    <!-- <td>{{business.is_approved}}</td>
-                    <td>
-                        <a>Feedback</a>
-                    </td>
-                    <td>
-                        <div class="row">
-                            <div class="col-sm">
-                                <a><i class="fas fa-pen-square"></i>Update</a>
-                            </div>
-                            <div class="col-sm">
-                                <a><i class="fas fa-trash-alt text-danger"></i>Del</a>
-                            </div>
-                        </div>
-
-                    </td>
-                </tr>
-                {%endfor%}
-            </tbody>
-        </table>
-        <Table-->
-    <!-- </div>  -->
-
     <div class="container-fluid">
         <ul class="nav nav-tabs pt-5" id="myTab" role="tablist">
             <li class="nav-item">
-                <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home"
-                    aria-selected="true">
-                    My Businesses
-                    <a href="{% url "new_business" %}">New Business</a>
+                <a class="nav-link active h5" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                    aria-controls="home" aria-selected="true">
+                    My Business <a href="{% url "new_business" %}" class="pl-3">New Business</a>
                 </a>
 
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="pending-tab" data-toggle="tab" href="#pending" role="tab"
+                <a class="nav-link h5" id="pending-tab" data-toggle="tab" href="#pending" role="tab"
                     aria-controls="contact" aria-selected="false">Pending</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                <a class="nav-link h5" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
                     aria-controls="contact" aria-selected="false">Approved</a>
             </li>
         </ul>

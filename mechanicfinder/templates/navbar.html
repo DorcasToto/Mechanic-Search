@@ -12,18 +12,7 @@
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
-            {%if user.is_authenticated and user.is_mechanic%}
-            <li class="nav-item ">
-                <a class="nav-link" href="">Approved
-                    <span></span>
-                </a>
-            </li>
-            <li class="nav-item ">
-                <a class="nav-link" href="">View Feedback
-                    <span></span>
-                </a>
-            </li>
-            {%else%}
+            {%if user.is_client%}
             <li class="nav-item ">
                 <a class="nav-link" href="">Give Feedback
                     <span></span>
