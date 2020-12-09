@@ -12,6 +12,23 @@
                     <span class="sr-only">(current)</span>
                 </a>
             </li>
+            {%if user.is_authenticated and user.is_mechanic%}
+            <li class="nav-item ">
+                <a class="nav-link" href="">Approved
+                    <span></span>
+                </a>
+            </li>
+            <li class="nav-item ">
+                <a class="nav-link" href="">View Feedback
+                    <span></span>
+                </a>
+            </li>
+            {%else%}
+            <li class="nav-item ">
+                <a class="nav-link" href="">Give Feedback
+                    <span></span>
+                </a>
+            </li>
         </ul>
         <ul class="navbar-nav ml-auto nav-flex-icons">
             <li class="nav-item">
@@ -35,6 +52,6 @@
                 </div>
             </li>
         </ul>
+        {%endif%}
     </div>
 </nav>
-<!--/.Navbar -->

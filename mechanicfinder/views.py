@@ -15,7 +15,8 @@ def home(request):
 
 def landingpage(request):
     businesses = Business.objects.filter(user=request.user)
-    return render(request,"landingpage.html",{"businesses":businesses})
+    all_businesses = Business.objects.filter(is_approved=True)
+    return render(request,"landingpage.html",{"businesses":businesses,"all_businesses":all_businesses})
    
 def garage_home(request):
     return render(request,"garage_home.html")

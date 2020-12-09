@@ -37,6 +37,6 @@ class GarageRegistrationForm(UserCreationForm):
 class BusinessRegistration(forms.ModelForm):
     class Meta:
         model = Business
-        fields= ['business_name','mechanic_name','services','available','address','city','location','cert']
+        fields= ['business_name','mechanic_name','services','available','price','address','city','location','phone_number','cert']
 
         

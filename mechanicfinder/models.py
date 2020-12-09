@@ -28,7 +28,9 @@ class Business(models.Model):
     available = models.CharField(max_length=20)
     address = models.CharField(max_length=20)
     city = models.CharField(max_length=20)
+    price = models.IntegerField(default=0)
     location = models.CharField(max_length=20)
+    phone_number = models.IntegerField(default=0,null=False)
     cert = models.ImageField(upload_to="images",default="cert.jpg")
     is_approved = models.BooleanField(default=False)
 

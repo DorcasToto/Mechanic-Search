@@ -5,67 +5,158 @@
 
     <div class="container-fluid">
         {%if user.is_authenticated and user.is_client%}
-        <a href="">Welcome</a>
-        {%else%}
-        <a href="">Eeeeissh</a>
-
+        <h3>Find on Road services</h3>
         <div class="container">
-            <a href="{% url "new_business" %}">
-                <button class="btn btn-default">Create Business</button>
-            </a>
-
-            <h2>List of my Businesses</h2>
-            <!--Table-->
-            <table class="table table-striped w-auto">
-
-                <!--Table head-->
-                <thead>
-                    <tr>
-                        <th>#</th>
-                        <th class="h5">Business Name</th>
-                        <th class="h5">Mechanic Name</th>
-                        <th class="h5">Services</th>
-                        <th class="h5">Availability</th>
-                        <th class="h5">Address</th>
-                        <th class="h5">City</th>
-                        <th class="h5">Location</th>
-                        <th class="h5">is_approved</th>
-                        <th class="h5">Action</th>
-                    </tr>
-
-                </thead>
-                <tbody>
-                    {%for business in businesses%}
-                    <tr class="table-info">
-                        <th scope="row">1</th>
-                        <td>{{business.business_name}}</td>
-                        <td>{{business.mechanic_name}}</td>
-                        <td>{{business.services}}</td>
-                        <td>{{business.available}}</td>
-                        <td>{{business.address}}</td>
-                        <td>{{business.city}}</td>
-                        <td>{{business.location}}</td>
-                        <td>{{business.is_approved}}</td>
-                        <td>
-                            <div class="row">
-                                <div class="col-sm">
-                                    <a href="">Update</a>
-                                </div>
-                                <div class="col-sm">
-                                    <a href="" class="text-danger">Delete</a>
-                                </div>
+            <h3 class="pt-5 text-center">Available Approved services</h3>
+            <hr>
+            <div class="row pt-5">
+                {%for bus in all_businesses%}
+                <div class="col-md-4">
+                    <div class="card p-3">
+                        <div class="row">
+                            <div class="col-sm">
+                                <p class="text-secondary">Business name:</p>
                             </div>
+                            <div class="col-sm">
+                                {{bus.business_name}}
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm" class="h1">
+                                <p class="text-secondary">Mechanic name:</p>
+                            </div>
+                            <div class="col-sm">
+                                {{bus.mechanic_name}}
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm" class="h1">
+                                <p class="text-secondary">Services:</p>
+                            </div>
+                            <div class="col-sm">
+                                {{bus.services}}
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm" class="h1">
+                                <p class="text-secondary">Available:</p>
+                            </div>
+                            <div class="col-sm">
+                                {{bus.available}}
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm" class="h1">
+                                <p class="text-secondary">Address:</p>
+                            </div>
+                            <div class="col-sm">
+                                {{bus.address}}
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm" class="h1">
+                                <p class="text-secondary">City:</p>
+                            </div>
+                            <div class="col-sm">
+                                {{bus.city}}
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm" class="h1">
+                                <p class="text-secondary">Price:</p>
+                            </div>
+                            <div class="col-sm">
+                                {{bus.price}}
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm" class="h1">
+                                <p class="text-secondary">Location:</p>
+                            </div>
+                            <div class="col-sm">
+                                {{bus.location}}
+                            </div>
+                        </div>
+                        <div class="row ">
+                            <div class="col-sm" class="h1">
+                                <p class="text-secondary">Phone number:</p>
+                            </div>
+                            <div class="col-sm">
+                                {{bus.phone_number}}
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                {%endfor%}
+            </div>
 
-                        </td>
-                    </tr>
-                    {%endfor%}
-                </tbody>
-            </table>
-            <!--Table-->
         </div>
-
-        {%endif%}
     </div>
 
-    {%endblock%}
+    {%else%}
+    <a href="">Eeeeissh</a>
+
+    <div class="container-fluid">
+        <a href="{% url "new_business" %}">
+            <button class="btn btn-default">Create Business</button>
+        </a>
+
+        <h2>List of my Businesses</h2>
+        <!--Table-->
+        <table class="table table-striped w-auto">
+
+            <!--Table head-->
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th class="h5">Business Name</th>
+                    <th class="h5">Mechanic Name</th>
+                    <th class="h5">Services</th>
+                    <th class="h5">Availability</th>
+                    <th class="h5">Price</th>
+                    <th class="h5">Address</th>
+                    <th class="h5">City</th>
+                    <th class="h5">Location</th>
+                    <th class="h5">Phone number</th>
+                    <th class="h5">is_approved</th>
+                    <th class="h5">Action</th>
+                </tr>
+
+            </thead>
+            <tbody>
+                {%for business in businesses%}
+                <tr class="table-info">
+                    <th scope="row">1</th>
+                    <td>{{business.business_name}}</td>
+                    <td>{{business.mechanic_name}}</td>
+                    <td>{{business.services}}</td>
+                    <td>{{business.available}}</td>
+                    <td>{{business.price}}</td>
+                    <td>{{business.address}}</td>
+                    <td>{{business.city}}</td>
+                    <td>{{business.location}}</td>
+                    <td>{{business.phone_number}}</td>
+                    <td>{{business.is_approved}}</td>
+                    <td>
+                        <div class="row">
+                            <div class="col-sm">
+                                <a href="">Update</a>
+                            </div>
+                            <div class="col-sm">
+                                <a href="" class="text-danger mr-5">Delete</a>
+                            </div>
+                        </div>
+
+                    </td>
+                </tr>
+                {%endfor%}
+            </tbody>
+        </table>
+        <!--Table-->
+    </div>
+
+    {%endif%}
+</div>
+
+{%endblock%}
 </div>
