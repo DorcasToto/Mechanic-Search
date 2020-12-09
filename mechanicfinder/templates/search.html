@@ -10,7 +10,7 @@
                     <h5 class="text-center">Found {{ results|length }} locations that matched your
                         search{{ results|pluralize }}</h5>
                     {% else %}
-                    <h5 class="text-center"> Found 0 user with username <strong>{{message}}</strong></h5>
+                    <h5 class="text-center"> Found 0 user with location <strong>{{message}}</strong></h5>
 
                     <a class="d-block mx-auto" href="landingpage">
                         <button class="btn btn-sm btn-info d-block mx-auto">Back Home</button>
@@ -23,10 +23,89 @@
             </div>
 
             {% if results %}
-            {% for res in results %}
 
-            <h3>{{res.business_name}}</h3>
-            {%endfor%}
+            <div class="container-fluid">
+                <div class="row pt-5">
+                    {% for res in results %}
+                    <div class="col-md-4">
+                        <div class="card p-3">
+                            <div class="row">
+                                <div class="col-sm">
+                                    <p class="text-secondary">Business name:</p>
+                                </div>
+                                <div class="col-sm">
+                                    {{res.business_name}}
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm" class="h1">
+                                    <p class="text-secondary">Mechanic name:</p>
+                                </div>
+                                <div class="col-sm">
+                                    {{res.mechanic_name}}
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm" class="h1">
+                                    <p class="text-secondary">Services:</p>
+                                </div>
+                                <div class="col-sm">
+                                    {{res.services}}
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm" class="h1">
+                                    <p class="text-secondary">Available:</p>
+                                </div>
+                                <div class="col-sm">
+                                    {{res.available}}
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm" class="h1">
+                                    <p class="text-secondary">Address:</p>
+                                </div>
+                                <div class="col-sm">
+                                    {{res.address}}
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm" class="h1">
+                                    <p class="text-secondary">City:</p>
+                                </div>
+                                <div class="col-sm">
+                                    {{res.city}}
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm" class="h1">
+                                    <p class="text-secondary">Price:</p>
+                                </div>
+                                <div class="col-sm">
+                                    {{res.price}}
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm" class="h1">
+                                    <p class="text-secondary">Location:</p>
+                                </div>
+                                <div class="col-sm">
+                                    {{res.location}}
+                                </div>
+                            </div>
+                            <div class="row ">
+                                <div class="col-sm" class="h1">
+                                    <p class="text-secondary">Phone number:</p>
+                                </div>
+                                <div class="col-sm">
+                                    {{res.phone_number}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    {%endfor%}
+                </div>
+            </div>
             {%endif%}
 
         </div>

@@ -1,0 +1,1 @@
+web: gunicorn VehicleBreakdownAssistant.wsgi --log-file -
