@@ -22,14 +22,15 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Business Name</th>
-                        <th>Mechanic Name</th>
-                        <th>Services</th>
-                        <th>Availability</th>
-                        <th>Address</th>
-                        <th>City</th>
-                        <th>Location</th>
-                        <th>is_approved</th>
+                        <th class="h5">Business Name</th>
+                        <th class="h5">Mechanic Name</th>
+                        <th class="h5">Services</th>
+                        <th class="h5">Availability</th>
+                        <th class="h5">Address</th>
+                        <th class="h5">City</th>
+                        <th class="h5">Location</th>
+                        <th class="h5">is_approved</th>
+                        <th class="h5">Action</th>
                     </tr>
 
                 </thead>
@@ -45,6 +46,17 @@
                         <td>{{business.city}}</td>
                         <td>{{business.location}}</td>
                         <td>{{business.is_approved}}</td>
+                        <td>
+                            <div class="row">
+                                <div class="col-sm">
+                                    <a href="">Update</a>
+                                </div>
+                                <div class="col-sm">
+                                    <a href="" class="text-danger">Delete</a>
+                                </div>
+                            </div>
+
+                        </td>
                     </tr>
                     {%endfor%}
                 </tbody>

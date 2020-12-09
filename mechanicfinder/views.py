@@ -80,6 +80,3 @@ def new_business(request):
         form = BusinessRegistration()
 
     return render(request,"new_business.html",{"form":form})      
-            # business_form = BusinessRegistration.save(commit = False)
-            # business_form.user = user
-            # business_form.save()
