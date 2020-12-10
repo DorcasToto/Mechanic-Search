@@ -100,30 +100,37 @@
         </div>
     </div>
     {%else%}
-    <div class="container-fluid">
-        <ul class="nav nav-tabs pt-5" id="myTab" role="tablist">
-            <li class="nav-item">
-                <a class="nav-link active h5" id="home-tab" data-toggle="tab" href="#home" role="tab"
-                    aria-controls="home" aria-selected="true">
-                    My Business
-                </a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link h5" id="pending-tab" data-toggle="tab" href="#pending" role="tab"
-                    aria-controls="contact" aria-selected="false">Pending</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link h5" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
-                    aria-controls="contact" aria-selected="false">Approved</a>
-            </li>
-            <li id="newBus" style="margin: 10 0 auto;">
-                <a href="{% url "new_business" %}" class="pl-3">Create Business</a>
-            </li>
-        </ul>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8">
+                <ul class="nav nav-tabs pt-5" id="myTab" role="tablist">
+
+                    <li class="nav-item">
+                        <a class="nav-link active h5" id="home-tab" data-toggle="tab" href="#home" role="tab"
+                            aria-controls="home" aria-selected="true">
+                            My Business
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link h5" id="pending-tab" data-toggle="tab" href="#pending" role="tab"
+                            aria-controls="contact" aria-selected="false">Pending</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link h5" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
+                            aria-controls="contact" aria-selected="false">Approved</a>
+                    </li>
+            </div>
+            <div class="col-md-4 pt-5">
+                <div id="newBus" style="margin: 10 0 auto; float: right">
+                    <a href="{% url "new_business" %}" class="btn-primary btn-lg">Create Business</a>
+                </div>
+            </div>
+        </div>
+
         <div class="tab-content" id="myTabContent">
             <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">
 
-                <table class="table table-striped w-auto">
+                <table class="table table-striped w-full">
 
                     <!--Table head-->
                     <thead>
@@ -185,7 +192,7 @@
             <!-- pending -->
             <div class="tab-pane fade" id="pending" role="tabpanel" aria-labelledby="pending-tab">
 
-                <table class="table table-striped w-auto">
+                <table class="table table-striped w-full">
 
                     <!--Table head-->
                     <thead>
@@ -228,7 +235,7 @@
             </div>
             <div class="tab-pane fade" id="contact" role="tabpanel" aria-labelledby="contact-tab">
 
-                <table class="table table-striped w-auto">
+                <table class="table table-striped w-full">
 
                     <!--Table head-->
                     <thead>
