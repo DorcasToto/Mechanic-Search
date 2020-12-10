@@ -15,11 +15,11 @@ urlpatterns = [
     path('delete/<id>/',views.delete,name = 'delete'),
     path('update/<id>/',views.update,name = 'update'),
     path('login/',views.login_request,name = 'login'),
+    path('view_business/<id>/',views.view_business,name = 'view_business'),
     path('garage_feedback/<id>/',views.garage_feedback,name = 'garage_feedback'),
     path('client_feedback/<id>/',views.client_feedback,name = 'client_feedback'),
     path('logout/',views.logout_request,name = 'logout'),
-
-     
+  
 ]
 
 if settings.DEBUG:

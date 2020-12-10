@@ -166,3 +166,6 @@ def garage_feedback(request,id):
     feedback = Feedback.objects.filter(business=id)
     return render(request,'garage_feedback.html',{'feedback':feedback})
 
+def view_business(request,id):
+    view_business = Business.objects.get(id = id)
+    return render(request,"landingpage.html",{"view_business":view_business})
