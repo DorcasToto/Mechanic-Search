@@ -108,9 +108,6 @@
                     My Business
                 </a>
             </li>
-            <li id="newBus" style="margin: 10 0 auto;">
-                <a href="{% url "new_business" %}" class="pl-3">New Business</a>
-            </li>
             <li class="nav-item">
                 <a class="nav-link h5" id="pending-tab" data-toggle="tab" href="#pending" role="tab"
                     aria-controls="contact" aria-selected="false">Pending</a>
@@ -118,6 +115,9 @@
             <li class="nav-item">
                 <a class="nav-link h5" id="contact-tab" data-toggle="tab" href="#contact" role="tab"
                     aria-controls="contact" aria-selected="false">Approved</a>
+            </li>
+            <li id="newBus" style="margin: 10 0 auto;">
+                <a href="{% url "new_business" %}" class="pl-3">Create Business</a>
             </li>
         </ul>
         <div class="tab-content" id="myTabContent">
