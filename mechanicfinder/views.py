@@ -162,6 +162,7 @@ def garage_feedback(request,id):
     # except ObjectDoesNotExist:
     #     raise Http404("No MyModel matches the given query.")
     # return render(request,'garage_feedback.html',{'feedback':feedback})
-    feedback = get_object_or_404(Feedback,business=id)
+    # feedback = get_object_or_404(Feedback,business=id)
+    feedback = Feedback.objects.filter(business=id)
     return render(request,'garage_feedback.html',{'feedback':feedback})
 
